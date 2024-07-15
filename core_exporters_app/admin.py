@@ -8,12 +8,6 @@ from django.urls import re_path
 
 from core_main_app.admin import core_admin_site
 
-from core_exporters_app.components.exported_compressed_file.admin_site import (
-    CustomExportedCompressedFileAdmin,
-)
-from core_exporters_app.components.exported_compressed_file.models import (
-    ExportedCompressedFile,
-)
 from core_exporters_app.components.exporter.admin_site import (
     CustomExporterAdmin,
 )
@@ -49,7 +43,6 @@ admin_urls = [
 ]
 
 admin.site.register(Exporter, CustomExporterAdmin)
-admin.site.register(ExportedCompressedFile, CustomExportedCompressedFileAdmin)
 
 urls = core_admin_site.get_urls()
 core_admin_site.get_urls = lambda: admin_urls + urls
